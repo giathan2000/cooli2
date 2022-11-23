@@ -19,10 +19,14 @@ const HomeStack = createStackNavigator(
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
+  tabBarOptions: { 
+    activeTintColor: '#fa7373',
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name="local-fire-department"
+      
     />
   ),
 }
@@ -38,6 +42,9 @@ const TopPicksStack = createStackNavigator(
 
 TopPicksStack.navigationOptions = {
   tabBarLabel: 'TopPicks',
+  tabBarOptions: { 
+    activeTintColor: '#fa7373',
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon  focused={focused} name="trending-up" />
   ),
@@ -54,6 +61,9 @@ const MessagesStack = createStackNavigator(
 
 MessagesStack.navigationOptions = {
   tabBarLabel: 'Messages',
+  tabBarOptions: { 
+    activeTintColor: '#fa7373',
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon  focused={focused} name="message" />
   ),
@@ -65,12 +75,15 @@ const ProfileStack = createStackNavigator(
   },
   {
     headerMode: 'none',
-
+    
   },
 )
 
 ProfileStack.navigationOptions = {
   tabBarLabel: 'Profile',
+  tabBarOptions: { 
+    activeTintColor: '#fa7373',
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon  focused={focused} name="account-circle" />
   ),
