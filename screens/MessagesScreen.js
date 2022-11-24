@@ -1,9 +1,13 @@
-import React from 'react'
-import { SafeAreaView, ScrollView, StyleSheet } from 'react-native'
-import { ListItem } from 'react-native-elements'
-import { Messages } from '../constants/Messages'
+import React from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, View, Text } from 'react-native';
+import { ListItem, Avatar } from 'react-native-elements';
+import { Messages } from '../constants/Messages';
+import TouchableScale from 'react-native-touchable-scale';
 
 class MessagesScreen extends React.Component {
+  componentDidMount = () => {
+    console.log(Messages);
+  }
   render() {
     return (
       <SafeAreaView>
@@ -11,23 +15,37 @@ class MessagesScreen extends React.Component {
           {Messages.map((user, i) => (
             <ListItem
               key={i}
-              leftAvatar={{ source: user.pic, size: 'large' }}
-              title={user.title}
-              titleStyle={styles.title}
-              subtitle={user.message}
-              subtitleStyle={styles.subtitle}
-              chevron
-            />
+              bottomDivider
+              style={{margin:3}}
+              Component={TouchableScale}
+              friction={80} //
+              tension={100} // These props are passed to the parent component (here TouchableScale)
+              activeScale={0.9} //
+            >
+              <Avatar rounded source={user.pic} size='large' />
+              <ListItem.Content >
+                <ListItem.Title style={styles.title}>{user.title}</ListItem.Title>
+                <ListItem.Subtitle style={styles.subtitle}>{user.message}</ListItem.Subtitle>
+              </ListItem.Content>
+            </ListItem>
           ))}
         </ScrollView>
+
       </SafeAreaView>
     )
   }
 }
 
+const generateColor = () => {
+  const randomColor = Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, '0');
+  return `#${randomColor}`;
+};
+
 const styles = StyleSheet.create({
   title: {
-    fontSize: 24,
+    fontSize: 20,
     color: '#3F3F3F',
   },
   subtitle: {

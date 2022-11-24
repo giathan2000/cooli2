@@ -15,7 +15,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-import Loader from './Components/Loader';
+import Loader from '../components/Loader';
 
 const RegisterScreen = (props) => {
   const [userName, setUserName] = useState('');
@@ -31,67 +31,67 @@ const RegisterScreen = (props) => {
   const ageInputRef = createRef();
   const addressInputRef = createRef();
 
-  // const handleSubmitButton = () => {
-  //   setErrortext('');
-  //   if (!userName) {
-  //     alert('Please fill Name');
-  //     return;
-  //   }
-  //   if (!userEmail) {
-  //     alert('Please fill Email');
-  //     return;
-  //   }
-  //   if (!userAge) {
-  //     alert('Please fill Age');
-  //     return;
-  //   }
-  //   if (!userAddress) {
-  //     alert('Please fill Address');
-  //     return;
-  //   }
-  //   //Show Loader
-  //   setLoading(true);
-  //   var dataToSend = {
-  //     user_name: userName,
-  //     user_email: userEmail,
-  //     user_age: userAge,
-  //     user_address: userAddress,
-  //   };
-  //   var formBody = [];
-  //   for (var key in dataToSend) {
-  //     var encodedKey = encodeURIComponent(key);
-  //     var encodedValue = encodeURIComponent(dataToSend[key]);
-  //     formBody.push(encodedKey + '=' + encodedValue);
-  //   }
-  //   formBody = formBody.join('&');
+  const handleSubmitButton = () => {
+    // setErrortext('');
+    // if (!userName) {
+    //   alert('Please fill Name');
+    //   return;
+    // }
+    // if (!userEmail) {
+    //   alert('Please fill Email');
+    //   return;
+    // }
+    // if (!userAge) {
+    //   alert('Please fill Age');
+    //   return;
+    // }
+    // if (!userAddress) {
+    //   alert('Please fill Address');
+    //   return;
+    // }
+    // //Show Loader
+    // setLoading(true);
+    // var dataToSend = {
+    //   user_name: userName,
+    //   user_email: userEmail,
+    //   user_age: userAge,
+    //   user_address: userAddress,
+    // };
+    // var formBody = [];
+    // for (var key in dataToSend) {
+    //   var encodedKey = encodeURIComponent(key);
+    //   var encodedValue = encodeURIComponent(dataToSend[key]);
+    //   formBody.push(encodedKey + '=' + encodedValue);
+    // }
+    // formBody = formBody.join('&');
 
-  //   fetch('https://aboutreact.herokuapp.com/register.php', {
-  //     method: 'POST',
-  //     body: formBody,
-  //     headers: {
-  //       //Header Defination
-  //       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((responseJson) => {
-  //       //Hide Loader
-  //       setLoading(false);
-  //       console.log(responseJson);
-  //       // If server response message same as Data Matched
-  //       if (responseJson.status == 1) {
-  //         setIsRegistraionSuccess(true);
-  //         console.log('Registration Successful. Please Login to proceed');
-  //       } else {
-  //         setErrortext('Registration Unsuccessful');
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       //Hide Loader
-  //       setLoading(false);
-  //       console.error(error);
-  //     });
-  // };
+    // fetch('https://aboutreact.herokuapp.com/register.php', {
+    //   method: 'POST',
+    //   body: formBody,
+    //   headers: {
+    //     //Header Defination
+    //     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((responseJson) => {
+    //     //Hide Loader
+    //     setLoading(false);
+    //     console.log(responseJson);
+    //     // If server response message same as Data Matched
+    //     if (responseJson.status == 1) {
+    //       setIsRegistraionSuccess(true);
+    //       console.log('Registration Successful. Please Login to proceed');
+    //     } else {
+    //       setErrortext('Registration Unsuccessful');
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     //Hide Loader
+    //     setLoading(false);
+    //     console.error(error);
+    //   });
+  };
   // if (isRegistraionSuccess) {
   //   return (
   //     <View
@@ -115,7 +115,7 @@ const RegisterScreen = (props) => {
   //   );
   // }
   return (
-    <View style={{flex: 1, backgroundColor: '#307ecc'}}>
+    <View style={{flex: 1, backgroundColor: '#FF5757'}}>
       <Loader loading={loading} />
       <ScrollView
         keyboardShouldPersistTaps="handled"
@@ -125,10 +125,10 @@ const RegisterScreen = (props) => {
         }}>
         <View style={{alignItems: 'center'}}>
           <Image
-            source={require('../Image/aboutreact.png')}
+            source={require('../assets/images/logo_big.png')}
             style={{
-              width: '50%',
-              height: 100,
+              width: '100%',
+              height: 170,
               resizeMode: 'contain',
               margin: 30,
             }}
@@ -141,7 +141,7 @@ const RegisterScreen = (props) => {
               onChangeText={(UserName) => setUserName(UserName)}
               underlineColorAndroid="#f000"
               placeholder="Enter Name"
-              placeholderTextColor="#8b9cb5"
+              placeholderTextColor="#fff"
               autoCapitalize="sentences"
               returnKeyType="next"
               onSubmitEditing={() =>
@@ -156,7 +156,7 @@ const RegisterScreen = (props) => {
               onChangeText={(UserEmail) => setUserEmail(UserEmail)}
               underlineColorAndroid="#f000"
               placeholder="Enter Email"
-              placeholderTextColor="#8b9cb5"
+              placeholderTextColor="#fff"
               keyboardType="email-address"
               ref={emailInputRef}
               returnKeyType="next"
@@ -172,7 +172,7 @@ const RegisterScreen = (props) => {
               onChangeText={(UserAge) => setUserAge(UserAge)}
               underlineColorAndroid="#f000"
               placeholder="Enter Age"
-              placeholderTextColor="#8b9cb5"
+              placeholderTextColor="#fff"
               keyboardType="numeric"
               ref={ageInputRef}
               returnKeyType="next"
@@ -188,7 +188,7 @@ const RegisterScreen = (props) => {
               onChangeText={(UserAddress) => setUserAddress(UserAddress)}
               underlineColorAndroid="#f000"
               placeholder="Enter Address"
-              placeholderTextColor="#8b9cb5"
+              placeholderTextColor="#fff"
               autoCapitalize="sentences"
               ref={addressInputRef}
               returnKeyType="next"
@@ -222,10 +222,10 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: '#7DE24E',
+    backgroundColor: '#008037',
     borderWidth: 0,
     color: '#FFFFFF',
-    borderColor: '#7DE24E',
+    borderColor: '#008037',
     height: 40,
     alignItems: 'center',
     borderRadius: 30,

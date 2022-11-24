@@ -15,9 +15,9 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 
-import AsyncStorage from '@react-native-community/async-storage';
+// import AsyncStorage from '@react-native-community/async-storage';
 
-import Loader from './Components/Loader';
+import Loader from '../components/Loader';
 
 const LoginScreen = ({navigation}) => {
   const [userEmail, setUserEmail] = useState('');
@@ -27,55 +27,55 @@ const LoginScreen = ({navigation}) => {
 
   const passwordInputRef = createRef();
 
-  // const handleSubmitPress = () => {
-  //   setErrortext('');
-  //   if (!userEmail) {
-  //     alert('Please fill Email');
-  //     return;
-  //   }
-  //   if (!userPassword) {
-  //     alert('Please fill Password');
-  //     return;
-  //   }
-  //   setLoading(true);
-  //   let dataToSend = {user_email: userEmail, user_password: userPassword};
-  //   let formBody = [];
-  //   for (let key in dataToSend) {
-  //     let encodedKey = encodeURIComponent(key);
-  //     let encodedValue = encodeURIComponent(dataToSend[key]);
-  //     formBody.push(encodedKey + '=' + encodedValue);
-  //   }
-  //   formBody = formBody.join('&');
+  const handleSubmitPress = () => {
+    // setErrortext('');
+    // if (!userEmail) {
+    //   alert('Please fill Email');
+    //   return;
+    // }
+    // if (!userPassword) {
+    //   alert('Please fill Password');
+    //   return;
+    // }
+    // setLoading(true);
+    // let dataToSend = {user_email: userEmail, user_password: userPassword};
+    // let formBody = [];
+    // for (let key in dataToSend) {
+    //   let encodedKey = encodeURIComponent(key);
+    //   let encodedValue = encodeURIComponent(dataToSend[key]);
+    //   formBody.push(encodedKey + '=' + encodedValue);
+    // }
+    // formBody = formBody.join('&');
 
-  //   fetch('https://aboutreact.herokuapp.com/login.php', {
-  //     method: 'POST',
-  //     body: formBody,
-  //     headers: {
-  //       //Header Defination
-  //       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((responseJson) => {
-  //       //Hide Loader
-  //       setLoading(false);
-  //       console.log(responseJson);
-  //       // If server response message same as Data Matched
-  //       if (responseJson.status == 1) {
-  //         AsyncStorage.setItem('user_id', responseJson.data[0].user_id);
-  //         console.log(responseJson.data[0].user_id);
-  //         navigation.replace('DrawerNavigationRoutes');
-  //       } else {
-  //         setErrortext('Please check your email id or password');
-  //         console.log('Please check your email id or password');
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       //Hide Loader
-  //       setLoading(false);
-  //       console.error(error);
-  //     });
-  // };
+    // fetch('https://aboutreact.herokuapp.com/login.php', {
+    //   method: 'POST',
+    //   body: formBody,
+    //   headers: {
+    //     //Header Defination
+    //     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((responseJson) => {
+    //     //Hide Loader
+    //     setLoading(false);
+    //     console.log(responseJson);
+    //     // If server response message same as Data Matched
+    //     if (responseJson.status == 1) {
+    //       AsyncStorage.setItem('user_id', responseJson.data[0].user_id);
+    //       console.log(responseJson.data[0].user_id);
+    //       navigation.replace('DrawerNavigationRoutes');
+    //     } else {
+    //       setErrortext('Please check your email id or password');
+    //       console.log('Please check your email id or password');
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     //Hide Loader
+    //     setLoading(false);
+    //     console.error(error);
+    //   });
+  };
 
   return (
     <View style={styles.mainBody}>
@@ -91,12 +91,12 @@ const LoginScreen = ({navigation}) => {
           <KeyboardAvoidingView enabled>
             <View style={{alignItems: 'center'}}>
               <Image
-                source={require('../Image/aboutreact.png')}
+                source={require('../assets/images/logo_big.png')}
                 style={{
                   width: '50%',
-                  height: 100,
+                  height: 170,
                   resizeMode: 'contain',
-                  margin: 30,
+                  margin: 10,
                 }}
               />
             </View>
@@ -105,7 +105,7 @@ const LoginScreen = ({navigation}) => {
                 style={styles.inputStyle}
                 onChangeText={(UserEmail) => setUserEmail(UserEmail)}
                 placeholder="Enter Email" //dummy@abc.com
-                placeholderTextColor="#8b9cb5"
+                placeholderTextColor="#FFFFFF"
                 autoCapitalize="none"
                 keyboardType="email-address"
                 returnKeyType="next"
@@ -121,7 +121,7 @@ const LoginScreen = ({navigation}) => {
                 style={styles.inputStyle}
                 onChangeText={(UserPassword) => setUserPassword(UserPassword)}
                 placeholder="Enter Password" //12345
-                placeholderTextColor="#8b9cb5"
+                placeholderTextColor="#FFFFFF"
                 keyboardType="default"
                 ref={passwordInputRef}
                 onSubmitEditing={Keyboard.dismiss}
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
   mainBody: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#307ecc',
+    backgroundColor: '#FF5757',
     alignContent: 'center',
   },
   SectionStyle: {
@@ -169,10 +169,10 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: '#7DE24E',
+    backgroundColor: '#60b03a',
     borderWidth: 0,
     color: '#FFFFFF',
-    borderColor: '#7DE24E',
+    borderColor: '#60b03a',
     height: 40,
     alignItems: 'center',
     borderRadius: 30,
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     color: 'white',
     paddingLeft: 15,
     paddingRight: 15,
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 30,
     borderColor: '#dadae8',
   },

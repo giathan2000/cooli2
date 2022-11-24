@@ -14,7 +14,7 @@ const SplashScreen = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
       setAnimating(false);
-      navigation.navigate('Main');
+      navigation.navigate('LoginScreen');
       //Check if user_id is set or not
       //If not then send for Authentication
       //else send to Home Screen
